@@ -1,0 +1,112 @@
+﻿@model IEnumerable<TP_WEB.Models.FormationAcademique>
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" name="viewport" />
+    <title>MouhammadWDiouf</title>
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
+          rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+          rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Ultra&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://kit.fontawesome.com/6fa5dbff09.js" crossorigin="anonymous"></script>
+    <script defer src="script.js" ></script>
+
+</head>
+<body>
+    <h1>Formation Académique</h1>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <table class="table">
+                <thead>
+                    <tr class="text-center">
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.NomEcole)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProgrammeEtude)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AnneeDebutFormation)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AnneeFinFormation)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LienProgrammeEtude)
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="align-middle">
+                                @Html.DisplayFor(modelItem => item.NomEcole)
+                            </td>
+                            <td class="align-middle">
+                                @Html.DisplayFor(modelItem => item.ProgrammeEtude)
+                            </td>
+                            <td class="align-middle">
+                                @Html.DisplayFor(modelItem => item.AnneeDebutFormation)
+                            </td>
+                            <td class="align-middle">
+                                @Html.DisplayFor(modelItem => item.AnneeFinFormation)
+                            </td>
+                            <td class="align-middle">
+                                @Html.DisplayFor(modelItem => item.LienProgrammeEtude)
+                            </td>
+                            <td class="align-middle">
+                                @if ((await AuthorizationService.AuthorizeAsync(User, "PeutAfficherEdit")).Succeeded)
+                                {
+                                    <button class="btn btn-primaire" style="color:antiquewhite; margin: 50px">
+                                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> <span>|</span>
+                                    </button>
+
+                                    <button class="btn btn-primaire" style="color:antiquewhite;">
+                                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                                    </button>
+                                }
+
+                                <button class="btn btn-primaire" style="color:antiquewhite; margin: 50px">
+                                    <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>AOS.init();</script>
+</body>
+</html>

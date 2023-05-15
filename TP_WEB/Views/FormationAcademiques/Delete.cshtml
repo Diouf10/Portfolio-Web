@@ -1,0 +1,57 @@
+﻿@model TP_WEB.Models.FormationAcademique
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Supprimer</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>FormationAcademique</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NomEcole)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomEcole)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProgrammeEtude)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProgrammeEtude)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AnneeDebutFormation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AnneeDebutFormation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AnneeFinFormation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AnneeFinFormation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LienProgrammeEtude)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LienProgrammeEtude)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EstDiplomeObtenu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EstDiplomeObtenu)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

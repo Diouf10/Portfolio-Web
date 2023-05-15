@@ -1,0 +1,93 @@
+﻿@model TP_WEB.Models.ExperienceProfessionel
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+@{
+    ViewData["Title"] = "Details";
+}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" name="viewport" />
+    <title>MouhammadWDiouf</title>
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
+          rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+          rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Ultra&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://kit.fontawesome.com/6fa5dbff09.js" crossorigin="anonymous"></script>
+    <script defer src="script.js" defer></script>
+
+</head>
+<h1>Détails</h1>
+
+<div>
+    <h4>ExperienceProfessionel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NomEntreprise)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomEntreprise)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PosteOccupe)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PosteOccupe)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionTaches)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionTaches)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AnneeEmbauche)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AnneeEmbauche)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AnneeFinEmploi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AnneeFinEmploi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SiteEntreprise)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SiteEntreprise)
+        </dd>
+    </dl>
+</div>
+<div>
+     @if ((await AuthorizationService.AuthorizeAsync(User, "PeutAfficherEdit")).Succeeded)
+                        {
+                            <button class="btn btn-primaire" style="color:antiquewhite; margin: 50px">
+                                <a asp-action="Modifier" asp-route-id="@Model?.ID">Edit</a> |
+                            </button>
+                        }
+
+                        <button class="btn btn-primaire" style="color:antiquewhite; margin: 50px">
+                                <a asp-action="Index">Retourner aux expériences proffessionnels</a>
+                        </button>
+    
+</div>
+</html>

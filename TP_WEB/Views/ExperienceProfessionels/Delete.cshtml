@@ -1,0 +1,57 @@
+﻿@model TP_WEB.Models.ExperienceProfessionel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Supprimer</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ExperienceProfessionel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NomEntreprise)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomEntreprise)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PosteOccupe)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PosteOccupe)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionTaches)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionTaches)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AnneeEmbauche)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AnneeEmbauche)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AnneeFinEmploi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AnneeFinEmploi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SiteEntreprise)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SiteEntreprise)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

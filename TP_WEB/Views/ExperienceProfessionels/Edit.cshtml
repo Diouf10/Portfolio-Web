@@ -1,0 +1,60 @@
+﻿@model TP_WEB.Models.ExperienceProfessionel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Modifier</h1>
+
+<h4>ExperienceProfessionel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="NomEntreprise" class="control-label"></label>
+                <input asp-for="NomEntreprise" class="form-control" />
+                <span asp-validation-for="NomEntreprise" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PosteOccupe" class="control-label"></label>
+                <input asp-for="PosteOccupe" class="form-control" />
+                <span asp-validation-for="PosteOccupe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescriptionTaches" class="control-label"></label>
+                <input asp-for="DescriptionTaches" class="form-control" />
+                <span asp-validation-for="DescriptionTaches" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnneeEmbauche" class="control-label"></label>
+                <input asp-for="AnneeEmbauche" class="form-control" />
+                <span asp-validation-for="AnneeEmbauche" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnneeFinEmploi" class="control-label"></label>
+                <input asp-for="AnneeFinEmploi" class="form-control" />
+                <span asp-validation-for="AnneeFinEmploi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SiteEntreprise" class="control-label"></label>
+                <input asp-for="SiteEntreprise" class="form-control" />
+                <span asp-validation-for="SiteEntreprise" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Revenir aux expériences profesionnels</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
